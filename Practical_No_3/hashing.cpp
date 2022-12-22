@@ -11,7 +11,7 @@ protected:
     int arr[29] = {0};
     int hash(int x)
     {
-        return arr[x] % LEN;
+        return x % LEN;
     }
     int insertCollision(int hash)
     {
