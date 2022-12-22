@@ -1,1 +1,4 @@
 Implement all different types of queues. (Using Array & Linked list)
+//circular queues
+//double ended queues
+//priority queues

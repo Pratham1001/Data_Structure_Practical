@@ -8,7 +8,7 @@ const int LEN = 29;
 class HashArray
 {
 protected:
-    int arr[29] = {NULL};
+    int arr[29] = {0};
     int hash(int x)
     {
         return arr[x] % LEN;
@@ -17,7 +17,7 @@ protected:
     {
         for (int i = hash; i < LEN; i++)
         {
-            if (arr[i] == NULL)
+            if (arr[i] == 0)
             {
                 return i;
             }
@@ -63,7 +63,7 @@ public:
     void insert(int x)
     {
         int hash = this->hash(x);
-        if (arr[hash] == NULL)
+        if (arr[hash] == 0)
         {
             arr[hash] = x;
         }
@@ -84,7 +84,7 @@ public:
     {
         for (int i = 0; i < LEN; i++)
         {
-            if (arr[i] != NULL)
+            if (arr[i] != 0)
             {
                 cout << arr[i] << " ";
             }
@@ -94,7 +94,7 @@ public:
     int search(int *k)
     {
         int hash = this->hash(*k);
-        if (arr[hash] == NULL)
+        if (arr[hash] == 0)
         {
             return -1;
         }
@@ -112,7 +112,7 @@ public:
         int hash = this->hash(k);
         if (arr[hash] == k)
         {
-            arr[hash] = NULL;
+            arr[hash] = 0;
             return 1;
         }
         else
