@@ -1,0 +1,9 @@
+Implementation of all types of linked list
+1)singly linked list
+2)doubly linked list
+3)circular linked list
+    a)using singly
+    b)using doubly
+
+    //make using class
+    //menu driven program
