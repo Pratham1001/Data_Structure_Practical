@@ -1,105 +1,130 @@
 #include <iostream>
 using namespace std;
 
-class Node {
-    public:
-        int data;
-        Node* next;
+class Node
+{
+public:
+    int data;
+    Node *next;
 
-        Node(int data) {
-            this->data = data;
-            this->next = nullptr; 
-        }
+    Node(int data)
+    {
+        this->data = data;
+        this->next = nullptr;
+    }
 };
 
-class LinkedList {
-    private:
-        Node* head;
-        Node* tail;
+class LinkedList
+{
+private:
+    Node *head;
 
-    public:
-        LinkedList() {
-            head = tail = nullptr;
+public:
+    LinkedList()
+    {
+        this->head = nullptr;
+    }
+
+    void insertAtEnd(int data)
+    {
+        Node *newNode = new Node(data);
+        if (head == nullptr)
+        {
+            head = newNode;
+            return;
         }
-
-        void insert_at_head(int data) {
-            Node* new_node = new Node(data);
-            new_node->next = head;
-            head = new_node;
-            if (tail == nullptr) {
-                tail = new_node;
-            }
+        
+        Node *current = head;
+        while (current->next != nullptr)
+        {
+            current = current->next;
         }
+        current->next = newNode;
+    }
 
-        void insert_at_tail(int data) {
-            Node* new_node = new Node(data);
-            if (tail == nullptr) {
-                head = tail = new_node;
+    void insertAtStart(int data)
+    {
+        Node *newNode = new Node(data);
+        newNode->next = head;
+        head = newNode;
+    }
+
+    void printList()
+    {
+        Node *current = head;
+        while (current != nullptr)
+        {
+            std::cout << current->data << " -> ";
+            current = current->next;
+        }
+        std::cout << "null" << std::endl;
+    }
+
+    void deleteNode(int data)
+    {
+        if (head == nullptr)
+        {
+            return;
+        }
+        if (head->data == data)
+        {
+            head = head->next;
+            return;
+        }
+        Node *current = head;
+        while (current->next != nullptr)
+        {
+            if (current->next->data == data)
+            {
+                current->next = current->next->next;
                 return;
             }
-            tail->next = new_node;
-            tail = new_node;
+            current = current->next;
         }
-
-        void delete_node(int data) {
-            if (head == nullptr) {
-                return;
-            }
-            if (head->data == data) {
-                head = head->next;
-                return;
-            }
-            Node* current = head;
-            while (current->next != nullptr) {
-                if (current->next->data == data) {
-                    current->next = current->next->next;
-                    return;
-                }
-                current = current->next;
-            }
-        }
-
-        void display() {
-            Node* current = head;
-            while (current != nullptr) {
-                cout << current->data << " ";
-                current = current->next;
-            }
-            cout << endl;
-        }
+    }
 };
 
-void menu() {
-    cout << "1. Insert at head" << endl;
-    cout << "2. Insert at tail" << endl;
-    cout << "3. Delete" << endl;
-    cout << "4. Display" << endl;
-    cout << "5. Exit" << endl;
-}
+int main()
+{
+    LinkedList linkedList;
+    int choice, data;
 
-int main() {
-    LinkedList ll;
-    while (true) {
-        menu();
-        int choice;
-        cout &#8203;`oaicite:{"index":0,"invalid_reason":"Malformed citation << \"Enter your choice: \";\n        cin >>"}`&#8203; choice;
-        if (choice == 1) {
-            int data;
-            cout &#8203;`oaicite:{"index":1,"invalid_reason":"Malformed citation << \"Enter data: \";\n            cin >>"}`&#8203; data;
-            ll.insert_at_head(data);
-        } else if (choice == 2) {
-            int data;
-            cout &#8203;`oaicite:{"index":2,"invalid_reason":"Malformed citation << \"Enter data: \";\n            cin >>"}`&#8203; data;
-            ll.insert_at_tail(data);
-        } else if (choice == 3) {
-            int data;
-            cout &#8203;`oaicite:{"index":3,"invalid_reason":"Malformed citation << \"Enter data: \";\n            cin >>"}`&#8203; data;
-            ll.delete_node(data);
-        } else if (choice == 4) {
-            ll.display();
-        } else if (choice == 5) {
+    while (true)
+    {
+        std::cout << "1. Insert node at end" << std::endl;
+        std::cout << "2. Insert node at start" << std::endl;
+        std::cout << "3. Delete node" << std::endl;
+        std::cout << "4. Print list" << std::endl;
+        std::cout << "5. Exit" << std::endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        switch (choice)
+        {
+        case 1:
+            std::cout << "Enter data: ";
+            std::cin >> data;
+            linkedList.insertAtEnd(data);
+            break;
+        case 2:
+            std::cout << "Enter data: ";
+            std::cin >> data;
+            linkedList.insertAtStart(data);
+            break;
+        case 3:
+            std::cout << "Enter data: ";
+            std::cin >> data;
+            linkedList.deleteNode(data);
+            break;
+        case 4:
+            linkedList.printList();
+            break;
+        case 5:
+            return 0;
+        default:
+            std::cout << "Invalid choice" << std::endl;
             break;
         }
     }
+
     return 0;
 }

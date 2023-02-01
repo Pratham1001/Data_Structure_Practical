@@ -3,36 +3,36 @@ using namespace std;
 
 class Node
 {
-public:
+
     int data;
     Node *next;
 
     Node(int data)
     {
         this->data = data;
-        this->next = nullptr;
+        this->next = next;
     }
 };
 
-class linkedlist
+class Linkedlist
 {
+
 private:
     Node *head;
-    Node *tail;
 
 public:
-    linkedlist()
+    Linkedlist()
     {
-        head = tail = nullptr;
-        }
+        this->head = nullptr;
+    }
 
-     void insert_at_head(int data) {
-            Node* new_node = new Node(data);
-            new_node->next = head;
-            head = new_node;
-            if (tail == nullptr) {
-                tail = new_node;
-            }
+    void insertatEnd(int data)
+    {
+        Node *newNode = new Node(data);
+        if (head == nullptr)
+        {
+            head = newNode;
+            return;
         }
-        
+    }
 };
