@@ -1,0 +1,13 @@
+create and perform various operation of binary search tree
+1)creation
+2)traversal 
+   in
+   pre
+   post
+3)find smallest node
+4)count of nodes
+5)Height of BST
+6) Deletion
+    a)part 1
+    b)part 2
+    

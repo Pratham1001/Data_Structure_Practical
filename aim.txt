@@ -1,0 +1,6 @@
+bfs
+dfs
+
+shortest path algorithm
+krushkal 
+prims

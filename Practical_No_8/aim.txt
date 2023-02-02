@@ -8,6 +8,7 @@ Node{
 Determination of larger Polynomial will save time though,
 saving just value with increasing degree will reduce a variable,
 but increase space for degree with 0 coefficient.
+
 ## Sparse Matrix
 [
     [0,0,0,0,5],[0,0,0,0,5],[0,0,0,0,5],[0,0,0,0,5],[0,0,0,0,5]

@@ -1,0 +1,9 @@
+heap 
+1)ACBT(almost complete binary tree)
+2)ordinary property
+    a)min heap
+    b)max heap
+    build heap
+    heapify
+    heap sort
+    
